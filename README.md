@@ -1,4 +1,4 @@
-# HealthBridge — AI-Powered Preventive Healthcare Platform
+# HealthBridge AI-Powered Preventive Healthcare Platform
 
 A full-stack MERN application combining an AI health assistant, wellness
 scoring, personalized health education, and real doctor appointment booking.

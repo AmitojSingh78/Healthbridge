@@ -1,27 +1,13 @@
 import API from "./api";
 
+export const runAssessment = async () => {
+	const response = await API.post("/wellness/assessment");
 
-export const runAssessment =
-  async () => {
+	return response.data;
+};
 
-    const response =
-      await API.post(
-        "/wellness/assessment"
-      );
+export const getLatestAssessment = async () => {
+	const response = await API.get("/wellness/assessment/latest");
 
-    return response.data;
-
-  };
-
-
-export const getLatestAssessment =
-  async () => {
-
-    const response =
-      await API.get(
-        "/wellness/assessment/latest"
-      );
-
-    return response.data;
-
-  };
+	return response.data;
+};

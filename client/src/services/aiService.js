@@ -1,53 +1,25 @@
 import API from "./api";
 
+export const createConversation = async () => {
+	const response = await API.post("/ai/conversation");
 
-export const createConversation =
-  async () => {
+	return response.data;
+};
 
-    const response =
-      await API.post(
-        "/ai/conversation"
-      );
+export const sendAIMessage = async (conversationId, message) => {
+	const response = await API.post(
+		`/ai/conversation/${conversationId}/message`,
 
-    return response.data;
+		{
+			message,
+		},
+	);
 
-  };
+	return response.data;
+};
 
+export const getConversation = async (conversationId) => {
+	const response = await API.get(`/ai/conversation/${conversationId}`);
 
-export const sendAIMessage =
-  async (
-    conversationId,
-    message
-  ) => {
-
-    const response =
-      await API.post(
-
-        `/ai/conversation/${conversationId}/message`,
-
-        {
-          message,
-        }
-
-      );
-
-    return response.data;
-
-  };
-
-
-export const getConversation =
-  async (
-    conversationId
-  ) => {
-
-    const response =
-      await API.get(
-
-        `/ai/conversation/${conversationId}`
-
-      );
-
-    return response.data;
-
-  };
+	return response.data;
+};

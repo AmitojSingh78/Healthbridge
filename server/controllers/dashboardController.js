@@ -4,167 +4,93 @@ const LearningPath = require("../models/LearningPath");
 const Appointment = require("../models/Appointment");
 const AIConversation = require("../models/AIConversation");
 
-
 exports.getPatientDashboard = async (req, res) => {
+	try {
+		const patientId = req.user._id;
 
-  try {
+		const patient = await User.findById(patientId).select(
+			"name email role profileImage",
+		);
 
-    const patientId = req.user._id;
+		const latestAssessment = await WellnessAssessment.findOne({
+			patient: patientId,
+		}).sort({
+			createdAt: -1,
+		});
 
-    const patient = await User.findById(
-      patientId
-    ).select(
-      "name email role profileImage"
-    );
+		const assessments = await WellnessAssessment.find({
+			patient: patientId,
+		})
+			.sort({
+				createdAt: 1,
+			})
+			.select("overallScore categories createdAt");
 
-    const latestAssessment =
-      await WellnessAssessment
-        .findOne({
-          patient: patientId,
-        })
-        .sort({
-          createdAt: -1,
-        });
+		const learningPath = await LearningPath.findOne({
+			patient: patientId,
+		}).sort({
+			createdAt: -1,
+		});
 
-    const assessments =
-      await WellnessAssessment
-        .find({
-          patient: patientId,
-        })
-        .sort({
-          createdAt: 1,
-        })
-        .select(
-          "overallScore categories createdAt"
-        );
+		const allAppointments = await Appointment.find({
+			patient: patientId,
+		})
+			.populate("doctor", "name specialization profileImage")
+			.sort({
+				createdAt: -1,
+			})
+			.limit(20);
 
-    const learningPath =
-      await LearningPath
-        .findOne({
-          patient: patientId,
-        })
-        .sort({
-          createdAt: -1,
-        });
+		const today = new Date();
 
-const allAppointments =
-    await Appointment
-        .find({
-            patient: patientId,
-        })
-        .populate(
-            "doctor",
-            "name specialization profileImage"
-        )
-        .sort({
-            createdAt: -1,
-        })
-        .limit(20);
+		today.setHours(0, 0, 0, 0);
 
-const today = new Date();
+		const upcomingAppointments = allAppointments
+			.filter((appointment) => {
+				const appointmentDate = new Date(appointment.date);
 
-today.setHours(
-    0,
-    0,
-    0,
-    0
-);
+				return (
+					!Number.isNaN(appointmentDate.getTime()) &&
+					appointmentDate >= today &&
+					["pending", "confirmed"].includes(appointment.status)
+				);
+			})
+			.sort((a, b) => {
+				return new Date(a.date) - new Date(b.date);
+			})
+			.slice(0, 5);
 
+		const aiConversations = await AIConversation.find({
+			patient: patientId,
+		})
+			.sort({
+				createdAt: -1,
+			})
+			.limit(5)
+			.select("messages requiresDoctor createdAt");
 
-const upcomingAppointments =
-    allAppointments
-        .filter((appointment) => {
+		res.json({
+			patient,
 
-            const appointmentDate =
-                new Date(
-                    appointment.date
-                );
+			wellness: {
+				latest: latestAssessment,
 
-            return (
+				history: assessments,
+			},
 
-                !Number.isNaN(
-                    appointmentDate.getTime()
-                ) &&
+			learning: {
+				path: learningPath,
+			},
 
-                appointmentDate >= today &&
+			appointments: upcomingAppointments,
 
-                [
-                    "pending",
-                    "confirmed",
-                ].includes(
-                    appointment.status
-                )
+			aiConversations,
+		});
+	} catch (error) {
+		console.error("Dashboard error:", error);
 
-            );
-
-        })
-        .sort((a, b) => {
-
-            return (
-                new Date(a.date) -
-                new Date(b.date)
-            );
-
-        })
-        .slice(0, 5);
-
-    const aiConversations =
-      await AIConversation
-        .find({
-          patient: patientId,
-        })
-        .sort({
-          createdAt: -1,
-        })
-        .limit(5)
-        .select(
-          "messages requiresDoctor createdAt"
-        );
-
-    res.json({
-
-      patient,
-
-      wellness: {
-
-        latest:
-          latestAssessment,
-
-        history:
-          assessments,
-
-      },
-
-      learning: {
-
-        path:
-          learningPath,
-
-      },
-
-      appointments:
-        upcomingAppointments,
-
-      aiConversations,
-
-    });
-
-
-  } catch (error) {
-
-    console.error(
-      "Dashboard error:",
-      error
-    );
-
-
-    res.status(500).json({
-
-      message:
-        "Unable to load dashboard",
-
-    });
-
-  }
-
+		res.status(500).json({
+			message: "Unable to load dashboard",
+		});
+	}
 };

@@ -1,214 +1,113 @@
-const AIConversation =
-  require("../models/AIConversation");
+const AIConversation = require("../models/AIConversation");
 
-const {
-  generateAIResponse,
-} = require("../services/aiService");
+const { generateAIResponse } = require("../services/aiService");
 
-exports.createConversation =
-  async (req, res) => {
+exports.createConversation = async (req, res) => {
+	try {
+		const conversation = await AIConversation.create({
+			patient: req.user._id,
 
-    try {
+			messages: [],
+		});
 
-      const conversation =
-        await AIConversation.create({
+		res.status(201).json({
+			conversation,
+		});
+	} catch (error) {
+		console.error(error);
 
-          patient:
-            req.user._id,
+		res.status(500).json({
+			message: "Unable to create AI conversation",
+		});
+	}
+};
 
-          messages: [],
+exports.sendMessage = async (req, res) => {
+	try {
+		const { message } = req.body;
 
-        });
+		if (!message || !message.trim()) {
+			return res.status(400).json({
+				message: "Message is required",
+			});
+		}
 
+		const conversation = await AIConversation.findOne({
+			_id: req.params.id,
 
-      res.status(201).json({
+			patient: req.user._id,
+		});
 
-        conversation,
+		if (!conversation) {
+			return res.status(404).json({
+				message: "Conversation not found",
+			});
+		}
 
-      });
+		conversation.messages.push({
+			role: "user",
 
+			content: message.trim(),
+		});
 
-    } catch (error) {
+		const aiResult = await generateAIResponse({
+			message,
 
-      console.error(error);
+			conversation: conversation.messages,
+		});
 
-      res.status(500).json({
+		conversation.messages.push({
+			role: "assistant",
 
-        message:
-          "Unable to create AI conversation",
+			content: aiResult.response,
+		});
 
-      });
+		conversation.requiresDoctor = aiResult.requiresDoctor;
 
-    }
+		conversation.redFlags = aiResult.redFlags;
 
-  };
+		await conversation.save();
 
-exports.sendMessage =
-  async (req, res) => {
+		res.json({
+			response: aiResult.response,
 
-    try {
+			requiresDoctor: aiResult.requiresDoctor,
 
-      const {
-        message,
-      } = req.body;
+			redFlags: aiResult.redFlags,
 
+			conversation,
+		});
+	} catch (error) {
+		console.error(error);
 
-      if (
-        !message ||
-        !message.trim()
-      ) {
+		res.status(500).json({
+			message: "AI assistant failed",
+		});
+	}
+};
 
-        return res.status(400).json({
+exports.getConversation = async (req, res) => {
+	try {
+		const conversation = await AIConversation.findOne({
+			_id: req.params.id,
 
-          message:
-            "Message is required",
+			patient: req.user._id,
+		});
 
-        });
-
-      }
-
-
-      const conversation =
-        await AIConversation.findOne({
-
-          _id:
-            req.params.id,
-
-          patient:
-            req.user._id,
-
-        });
-
-
-      if (!conversation) {
-
-        return res.status(404).json({
-
-          message:
-            "Conversation not found",
-
-        });
-
-      }
-
-      conversation.messages.push({
-
-        role: "user",
-
-        content:
-          message.trim(),
-
-      });
-
-
-      const aiResult =
-        await generateAIResponse({
-
-          message,
-
-          conversation:
-            conversation.messages,
-
-        });
-
-      conversation.messages.push({
-
-        role: "assistant",
-
-        content:
-          aiResult.response,
-
-      });
-
-
-      conversation.requiresDoctor =
-        aiResult.requiresDoctor;
-
-
-      conversation.redFlags =
-        aiResult.redFlags;
-
-
-      await conversation.save();
-
-
-      res.json({
-
-        response:
-          aiResult.response,
-
-        requiresDoctor:
-          aiResult.requiresDoctor,
-
-        redFlags:
-          aiResult.redFlags,
-
-        conversation,
-
-      });
-
-
-    } catch (error) {
-
-      console.error(error);
-
-      res.status(500).json({
-
-        message:
-          "AI assistant failed",
-
-      });
-
-    }
-
-  };
-
-
-exports.getConversation =
-  async (req, res) => {
-
-    try {
-
-      const conversation =
-        await AIConversation.findOne({
-
-          _id:
-            req.params.id,
-
-          patient:
-            req.user._id,
-
-        });
-
-
-      if (!conversation) {
-
-        return res.status(404).json({
-
-          message:
-            "Conversation not found",
-
-        });
-
-      }
-
-
-      res.json({
-        conversation,
-      });
-
-
-    } catch (error) {
-
-      console.error(error);
-
-      res.status(500).json({
-
-        message:
-          "Unable to fetch conversation",
-
-      });
-
-    }
-
-  };
+		if (!conversation) {
+			return res.status(404).json({
+				message: "Conversation not found",
+			});
+		}
+
+		res.json({
+			conversation,
+		});
+	} catch (error) {
+		console.error(error);
+
+		res.status(500).json({
+			message: "Unable to fetch conversation",
+		});
+	}
+};

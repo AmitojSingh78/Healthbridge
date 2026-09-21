@@ -21,3 +21,16 @@ server/dist/
 # OS files
 .DS_Store
 Thumbs.db
+
+# # Agent service
+# agent-service/
+
+# # Automation controller & hospital models (except server/db/)
+# server/controllers/automationController.js
+# server/models/Admission.js
+# server/models/AgentRun.js
+# server/models/Bed.js
+# server/models/Insurance.js
+# server/models/LabOrder.js
+# server/models/OperationTheatre.js
+# server/models/ProcedureProtocol.js

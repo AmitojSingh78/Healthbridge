@@ -2,6 +2,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const dotenv = require("dotenv");
+const connectDB = require("./config/db");
+connectDB();
 const authRoutes = require("./routes/authRoutes");
 const userRoutes = require("./routes/userRoutes");
 const healthRoutes = require("./routes/healthRoutes");
@@ -12,6 +14,7 @@ const learningRoutes = require("./routes/learningRoutes");
 const aiRoutes =require("./routes/aiRoutes");
 const dashboardRoutes =require("./routes/dashboardRoutes");
 const timelineRoutes =require("./routes/timelineRoutes");
+const automationRoutes = require("./routes/automationRoutes");
 dotenv.config();
 
 const app = express();
@@ -31,24 +34,11 @@ app.use(
   "/api/timeline",
   timelineRoutes
 );
+app.use("/api/automation", automationRoutes);
+
 
 app.get("/", (req, res) => {
   res.json({
     message: "HealthBridge AI Server is running",
   });
 });
-
-mongoose
-  .connect(process.env.MONGO_URI)
-  .then(() => {
-    console.log("MongoDB connected");
-
-    const PORT = process.env.PORT || 5000;
-
-    app.listen(PORT, () => {
-      console.log(`Server running on port ${PORT}`);
-    });
-  })
-  .catch((error) => {
-    console.error("MongoDB connection failed:", error.message);
-  });

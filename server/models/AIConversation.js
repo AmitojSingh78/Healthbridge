@@ -67,10 +67,7 @@ const aiConversationSchema = new mongoose.Schema(
   },
   {
     timestamps: true,
-  }
+  },
 );
 
-module.exports = mongoose.model(
-  "AIConversation",
-  aiConversationSchema
-);
+module.exports = mongoose.model("AIConversation", aiConversationSchema);

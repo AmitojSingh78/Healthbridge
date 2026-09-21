@@ -16,7 +16,7 @@ import EmptyState from "../../components/EmptyState";
 const priorityBadge = {
 	High: "badge-red",
 	Medium: "badge-amber",
-	Low: "badge-green",
+	Low: "badge-peach",
 };
 
 const LearningPath = () => {
@@ -99,6 +99,7 @@ const LearningPath = () => {
 			</div>
 		);
 	}
+
 	if (selectedModule && selectedLesson) {
 		return (
 			<div className="max-w-2xl">
@@ -109,7 +110,7 @@ const LearningPath = () => {
 					<ArrowLeft size={16} /> Back to learning path
 				</button>
 
-				<div className="card-pad">
+				<div className="card-pad border-peach-100/90">
 					<h1 className="text-xl font-extrabold text-ink-900">
 						{selectedLesson.title}
 					</h1>
@@ -122,7 +123,7 @@ const LearningPath = () => {
 					</p>
 				</div>
 
-				<div className="card-pad mt-4">
+				<div className="card-pad mt-4 border-peach-100/90">
 					<h2 className="section-title mb-4">Quick check</h2>
 
 					<div className="space-y-6">
@@ -143,13 +144,13 @@ const LearningPath = () => {
 														key={optionIndex}
 														className={`flex cursor-pointer items-center gap-2.5 rounded-xl border px-3.5 py-2.5 text-sm transition ${
 															checked
-																? "border-brand-500 bg-brand-50 text-brand-800"
-																: "border-ink-200 text-ink-600 hover:bg-ink-50"
+																? "border-peach-500 bg-peach-50 text-peach-900 font-semibold"
+																: "border-ink-200 text-ink-600 hover:bg-peach-50/40"
 														}`}
 													>
 														<input
 															type="radio"
-															className="accent-brand-600"
+															className="accent-peach-600"
 															name={`question-${questionIndex}`}
 															checked={checked}
 															onChange={() =>
@@ -171,12 +172,12 @@ const LearningPath = () => {
 					</div>
 
 					{result ? (
-						<div className="mt-6 rounded-2xl bg-brand-50 p-5 text-center">
+						<div className="mt-6 rounded-2xl bg-peach-50 p-5 text-center border border-peach-100">
 							<PartyPopper
-								className="mx-auto text-brand-600"
+								className="mx-auto text-peach-600"
 								size={28}
 							/>
-							<h2 className="mt-2 text-lg font-extrabold text-brand-800">
+							<h2 className="mt-2 text-lg font-extrabold text-peach-800">
 								Quiz complete!
 							</h2>
 							<p className="mt-1 text-2xl font-extrabold text-ink-900">
@@ -205,17 +206,18 @@ const LearningPath = () => {
 			</div>
 		);
 	}
+
 	return (
 		<div>
 			<h1 className="page-title flex items-center gap-2">
-				<BookOpen size={26} className="text-brand-600" /> My Health
+				<BookOpen size={26} className="text-peach-600" /> My Health
 				Learning Path
 			</h1>
 			<p className="page-subtitle">
 				Your learning journey, personalized to your wellness assessment.
 			</p>
 
-			<div className="card-pad mt-6">
+			<div className="card-pad mt-6 border-peach-100/90">
 				<div className="flex items-center justify-between">
 					<h2 className="section-title">Overall progress</h2>
 					<span className="text-xl font-extrabold text-ink-900">
@@ -234,7 +236,7 @@ const LearningPath = () => {
 						{learningPath.points} points
 					</p>
 					<p className="flex items-center gap-1.5 text-sm font-semibold text-ink-600">
-						<Trophy size={15} className="text-brand-600" />{" "}
+						<Trophy size={15} className="text-peach-600" />{" "}
 						{learningPath.completedLessons} lessons completed
 					</p>
 				</div>
@@ -242,10 +244,10 @@ const LearningPath = () => {
 
 			<div className="mt-6 space-y-5">
 				{learningPath.modules.map((module) => (
-					<div key={module._id} className="card-pad">
+					<div key={module._id} className="card-pad border-peach-100/90">
 						<div className="flex flex-wrap items-start justify-between gap-2">
 							<div>
-								<p className="text-xs font-semibold uppercase tracking-wide text-brand-600">
+								<p className="text-xs font-semibold uppercase tracking-wide text-peach-700">
 									{module.category}
 								</p>
 								<h2 className="mt-0.5 font-bold text-ink-900">
@@ -279,7 +281,7 @@ const LearningPath = () => {
 							{module.lessons.map((lesson) => (
 								<div
 									key={lesson._id}
-									className="rounded-xl bg-ink-50 p-4"
+									className="rounded-xl bg-ink-50 p-4 border border-ink-100"
 								>
 									<h4 className="text-sm font-bold text-ink-800">
 										{lesson.title}
@@ -291,7 +293,7 @@ const LearningPath = () => {
 									<p
 										className={`mt-1.5 flex items-center gap-1 text-xs font-semibold ${
 											lesson.completed
-												? "text-brand-600"
+												? "text-peach-600"
 												: "text-ink-400"
 										}`}
 									>

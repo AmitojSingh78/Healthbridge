@@ -11,7 +11,7 @@ import EmptyState from "../../components/EmptyState";
 const statusBadge = {
 	pending: "badge-amber",
 	confirmed: "badge-blue",
-	completed: "badge-green",
+	completed: "badge-peach",
 	rejected: "badge-red",
 	cancelled: "badge-slate",
 };
@@ -73,10 +73,10 @@ const MyAppointments = () => {
 					{appointments.map((appointment) => (
 						<div
 							key={appointment._id}
-							className="card-pad flex flex-wrap items-start justify-between gap-4"
+							className="card-pad flex flex-wrap items-start justify-between gap-4 border-peach-100/90"
 						>
 							<div className="flex gap-3">
-								<div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-brand-50 text-brand-600">
+								<div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-peach-50 text-peach-700 border border-peach-100">
 									<Stethoscope size={20} />
 								</div>
 								<div>
@@ -94,7 +94,7 @@ const MyAppointments = () => {
 											{appointment.status}
 										</span>
 									</div>
-									<p className="text-sm text-brand-600">
+									<p className="text-sm font-semibold text-peach-700">
 										{appointment.doctor?.specialization}
 									</p>
 									<p className="mt-1.5 flex items-center gap-1.5 text-sm text-ink-500">

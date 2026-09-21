@@ -75,7 +75,7 @@ const AIAssistant = () => {
 		<div className="mx-auto flex h-[calc(100vh-8rem)] max-w-3xl flex-col">
 			<div className="mb-4">
 				<h1 className="page-title flex items-center gap-2">
-					<Bot size={26} className="text-brand-600" /> AI Health
+					<Bot size={26} className="text-peach-600" /> AI Health
 					Assistant
 				</h1>
 				<p className="page-subtitle">
@@ -88,7 +88,7 @@ const AIAssistant = () => {
 				<div className="flex-1 space-y-4 overflow-y-auto p-5">
 					{messages.length === 0 && (
 						<div className="flex h-full flex-col items-center justify-center gap-4 text-center">
-							<div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-50 text-brand-600">
+							<div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-peach-50 text-peach-700 border border-peach-100">
 								<Sparkles size={22} />
 							</div>
 							<p className="max-w-sm text-sm text-ink-500">
@@ -100,7 +100,7 @@ const AIAssistant = () => {
 									<button
 										key={s}
 										onClick={() => sendMessage(s)}
-										className="rounded-full border border-ink-200 px-3 py-1.5 text-xs font-medium text-ink-600 hover:bg-ink-50"
+										className="rounded-full border border-ink-200 px-3 py-1.5 text-xs font-medium text-ink-600 hover:bg-peach-50/50 hover:border-peach-200 transition"
 									>
 										{s}
 									</button>
@@ -118,7 +118,7 @@ const AIAssistant = () => {
 								className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full ${
 									message.role === "user"
 										? "bg-ink-800 text-white"
-										: "bg-brand-100 text-brand-700"
+										: "bg-peach-100 text-peach-700"
 								}`}
 							>
 								{message.role === "user" ? (
@@ -141,13 +141,13 @@ const AIAssistant = () => {
 
 					{loading && (
 						<div className="flex items-center gap-2.5">
-							<div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-100 text-brand-700">
+							<div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-peach-100 text-peach-700">
 								<Bot size={15} />
 							</div>
 							<div className="flex gap-1 rounded-2xl rounded-tl-sm bg-ink-100 px-4 py-3">
-								<span className="h-1.5 w-1.5 animate-bounce rounded-full bg-ink-400 [animation-delay:-0.3s]" />
-								<span className="h-1.5 w-1.5 animate-bounce rounded-full bg-ink-400 [animation-delay:-0.15s]" />
-								<span className="h-1.5 w-1.5 animate-bounce rounded-full bg-ink-400" />
+								<span className="h-1.5 w-1.5 animate-bounce rounded-full bg-peach-400 [animation-delay:-0.3s]" />
+								<span className="h-1.5 w-1.5 animate-bounce rounded-full bg-peach-400 [animation-delay:-0.15s]" />
+								<span className="h-1.5 w-1.5 animate-bounce rounded-full bg-peach-400" />
 							</div>
 						</div>
 					)}

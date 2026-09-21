@@ -59,7 +59,7 @@ const Register = () => {
 					to="/"
 					className="mb-6 flex items-center justify-center gap-2.5"
 				>
-					<div className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-600 text-white">
+					<div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-peach-500 to-brand-500 text-white shadow-md shadow-peach-500/25">
 						<HeartPulse size={20} />
 					</div>
 					<span className="text-lg font-extrabold tracking-tight text-ink-900">
@@ -94,8 +94,8 @@ const Register = () => {
 								}
 								className={`flex items-center justify-center gap-2 rounded-xl border-2 py-2.5 text-sm font-semibold transition ${
 									formData.role === "patient"
-										? "border-brand-500 bg-brand-50 text-brand-700"
-										: "border-ink-200 text-ink-500 hover:bg-ink-50"
+										? "border-peach-500 bg-peach-50 text-peach-800"
+										: "border-ink-200 text-ink-500 hover:bg-peach-50/40"
 								}`}
 							>
 								<User size={16} /> Patient
@@ -107,8 +107,8 @@ const Register = () => {
 								}
 								className={`flex items-center justify-center gap-2 rounded-xl border-2 py-2.5 text-sm font-semibold transition ${
 									formData.role === "doctor"
-										? "border-brand-500 bg-brand-50 text-brand-700"
-										: "border-ink-200 text-ink-500 hover:bg-ink-50"
+										? "border-peach-500 bg-peach-50 text-peach-800"
+										: "border-ink-200 text-ink-500 hover:bg-peach-50/40"
 								}`}
 							>
 								<Stethoscope size={16} /> Doctor
@@ -130,8 +130,8 @@ const Register = () => {
 							<div>
 								<label className="field-label">Email</label>
 								<input
-									className="input"
 									type="email"
+									className="input"
 									name="email"
 									value={formData.email}
 									onChange={handleChange}
@@ -141,13 +141,13 @@ const Register = () => {
 							<div>
 								<label className="field-label">Password</label>
 								<input
-									className="input"
 									type="password"
+									className="input"
 									name="password"
+									placeholder="At least 6 characters"
 									value={formData.password}
 									onChange={handleChange}
 									required
-									minLength={6}
 								/>
 							</div>
 						</div>
@@ -192,8 +192,8 @@ const Register = () => {
 						</div>
 
 						{formData.role === "doctor" && (
-							<div className="space-y-4 rounded-xl border border-dashed border-brand-200 bg-brand-50/40 p-4">
-								<p className="text-xs font-bold uppercase tracking-wide text-brand-700">
+							<div className="space-y-4 rounded-xl border border-dashed border-peach-200 bg-peach-50/50 p-4">
+								<p className="text-xs font-bold uppercase tracking-wide text-peach-800">
 									Professional details
 								</p>
 								<div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -252,7 +252,7 @@ const Register = () => {
 
 						<button
 							type="submit"
-							className="btn-primary w-full py-2.5"
+							className="btn-primary w-full py-2.5 shadow-md shadow-peach-500/25"
 							disabled={loading}
 						>
 							{loading ? "Creating account..." : "Create account"}
@@ -264,7 +264,7 @@ const Register = () => {
 					Already have an account?{" "}
 					<Link
 						to="/login"
-						className="font-semibold text-brand-600 hover:underline"
+						className="font-semibold text-peach-600 hover:underline"
 					>
 						Log in
 					</Link>

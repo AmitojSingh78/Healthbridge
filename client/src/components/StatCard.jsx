@@ -1,9 +1,10 @@
 const toneMap = {
-	brand: "bg-brand-50 text-brand-600",
-	amber: "bg-amber-50 text-amber-600",
-	coral: "bg-coral-50 text-coral-600",
-	sky: "bg-sky-50 text-sky-600",
-	slate: "bg-ink-100 text-ink-600",
+	brand: "bg-brand-50 text-brand-700 border border-brand-200/60",
+	peach: "bg-peach-50 text-peach-700 border border-peach-200/60",
+	amber: "bg-amber-50 text-amber-700 border border-amber-200/60",
+	coral: "bg-coral-50 text-coral-600 border border-coral-200/60",
+	sky: "bg-sky-50 text-sky-700 border border-sky-200/60",
+	slate: "bg-ink-100 text-ink-600 border border-ink-200/60",
 };
 
 const StatCard = ({ icon: Icon, label, value, hint, tone = "brand" }) => {

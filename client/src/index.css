@@ -17,14 +17,14 @@
     @apply bg-ink-50 text-ink-800 font-sans antialiased;
   }
   ::selection {
-    @apply bg-brand-200 text-brand-900;
+    @apply bg-peach-200 text-peach-900;
   }
   ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
   }
   ::-webkit-scrollbar-thumb {
-    @apply bg-ink-200 rounded-full;
+    @apply bg-peach-200 rounded-full hover:bg-peach-300;
   }
   ::-webkit-scrollbar-track {
     background: transparent;
@@ -36,13 +36,13 @@
     @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition-all duration-150 disabled:opacity-50 disabled:cursor-not-allowed select-none;
   }
   .btn-primary {
-    @apply btn bg-brand-600 text-white shadow-sm hover:bg-brand-700 active:scale-[0.98];
+    @apply btn bg-gradient-to-r from-peach-500 to-brand-500 text-white shadow-sm shadow-peach-500/25 hover:from-peach-600 hover:to-brand-600 active:scale-[0.98];
   }
   .btn-secondary {
-    @apply btn bg-white text-ink-700 border border-ink-200 hover:bg-ink-50 active:scale-[0.98];
+    @apply btn bg-white text-ink-700 border border-ink-200 hover:bg-peach-50/50 hover:border-peach-200 active:scale-[0.98];
   }
   .btn-ghost {
-    @apply btn text-ink-600 hover:bg-ink-100;
+    @apply btn text-ink-600 hover:bg-peach-50 hover:text-peach-700;
   }
   .btn-danger {
     @apply btn bg-coral-500 text-white hover:bg-coral-600 active:scale-[0.98];
@@ -52,7 +52,7 @@
   }
 
   .card {
-    @apply bg-white rounded-2xl border border-ink-100 shadow-card;
+    @apply bg-white/95 rounded-2xl border border-peach-100/90 shadow-card;
   }
   .card-pad {
     @apply card p-5 md:p-6;
@@ -62,7 +62,7 @@
     @apply block text-xs font-semibold uppercase tracking-wide text-ink-500 mb-1.5;
   }
   .input {
-    @apply w-full rounded-xl border border-ink-200 bg-white px-3.5 py-2.5 text-sm text-ink-800 placeholder:text-ink-400 outline-none transition focus:border-brand-500 focus:ring-4 focus:ring-brand-100;
+    @apply w-full rounded-xl border border-ink-200 bg-white px-3.5 py-2.5 text-sm text-ink-800 placeholder:text-ink-400 outline-none transition focus:border-peach-400 focus:ring-4 focus:ring-peach-100/70;
   }
   .select {
     @apply input appearance-none pr-8;
@@ -75,7 +75,13 @@
     @apply inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-[11px] font-semibold;
   }
   .badge-green {
-    @apply badge bg-brand-100 text-brand-700;
+    @apply badge bg-peach-100 text-peach-700;
+  }
+  .badge-peach {
+    @apply badge bg-peach-100 text-peach-700;
+  }
+  .badge-yellow {
+    @apply badge bg-brand-100 text-brand-800;
   }
   .badge-amber {
     @apply badge bg-amber-100 text-amber-700;
@@ -104,13 +110,13 @@
     @apply flex items-center gap-3 rounded-xl px-3.5 py-2.5 text-sm font-medium text-ink-300 transition-colors hover:bg-white/10 hover:text-white;
   }
   .nav-link-active {
-    @apply flex items-center gap-3 rounded-xl px-3.5 py-2.5 text-sm font-semibold bg-brand-500 text-white shadow-lg shadow-brand-900/30;
+    @apply flex items-center gap-3 rounded-xl px-3.5 py-2.5 text-sm font-semibold bg-gradient-to-r from-peach-500 to-brand-500 text-white shadow-lg shadow-peach-950/40;
   }
 
   .progress-track {
-    @apply w-full h-2 rounded-full bg-ink-100 overflow-hidden;
+    @apply w-full h-2 rounded-full bg-peach-100/80 overflow-hidden;
   }
   .progress-fill {
-    @apply h-full rounded-full bg-gradient-to-r from-brand-400 to-brand-600 transition-all duration-500;
+    @apply h-full rounded-full bg-gradient-to-r from-brand-400 via-brand-500 to-peach-500 transition-all duration-500;
   }
 }

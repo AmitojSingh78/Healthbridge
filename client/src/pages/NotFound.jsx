@@ -4,7 +4,7 @@ import { Compass } from "lucide-react";
 const NotFound = () => {
 	return (
 		<div className="flex min-h-screen flex-col items-center justify-center gap-4 bg-ink-50 px-6 text-center">
-			<div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-brand-50 text-brand-600">
+			<div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-peach-50 text-peach-700 border border-peach-100">
 				<Compass size={30} />
 			</div>
 			<h1 className="text-2xl font-extrabold text-ink-900">

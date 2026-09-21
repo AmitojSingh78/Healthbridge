@@ -61,13 +61,13 @@ const PatientDashboard = () => {
 					icon={Activity}
 					label="Wellness score"
 					value={`${latestScore}/100`}
-					tone="brand"
+					tone="peach"
 				/>
 				<StatCard
 					icon={BookOpen}
 					label="Learning progress"
 					value={`${learningProgress}%`}
-					tone="sky"
+					tone="brand"
 				/>
 				<StatCard
 					icon={Star}
@@ -89,7 +89,7 @@ const PatientDashboard = () => {
 						<h2 className="section-title">Wellness progress</h2>
 						<Link
 							to="/patient/wellness"
-							className="text-xs font-semibold text-brand-600 hover:underline"
+							className="text-xs font-semibold text-peach-600 hover:underline"
 						>
 							Details
 						</Link>
@@ -150,7 +150,7 @@ const PatientDashboard = () => {
 							</div>
 
 							<div className="mt-5 grid grid-cols-2 gap-3">
-								<div className="rounded-xl bg-ink-50 p-3.5">
+								<div className="rounded-xl bg-ink-50 p-3.5 border border-ink-100">
 									<p className="text-xs text-ink-400">
 										Lessons completed
 									</p>
@@ -158,7 +158,7 @@ const PatientDashboard = () => {
 										{learning.completedLessons || 0}
 									</p>
 								</div>
-								<div className="rounded-xl bg-ink-50 p-3.5">
+								<div className="rounded-xl bg-ink-50 p-3.5 border border-ink-100">
 									<p className="text-xs text-ink-400">
 										Points
 									</p>
@@ -170,7 +170,7 @@ const PatientDashboard = () => {
 
 							<Link
 								to="/patient/learning"
-								className="mt-5 inline-block text-sm font-semibold text-brand-600 hover:underline"
+								className="mt-5 inline-block text-sm font-semibold text-peach-600 hover:underline"
 							>
 								Continue your learning →
 							</Link>
@@ -183,7 +183,7 @@ const PatientDashboard = () => {
 							</p>
 							<Link
 								to="/patient/wellness"
-								className="mt-3 inline-block text-sm font-semibold text-brand-600 hover:underline"
+								className="mt-3 inline-block text-sm font-semibold text-peach-600 hover:underline"
 							>
 								Take wellness assessment →
 							</Link>
@@ -197,7 +197,7 @@ const PatientDashboard = () => {
 					<h2 className="section-title">Upcoming appointments</h2>
 					<Link
 						to="/patient/appointments"
-						className="text-xs font-semibold text-brand-600 hover:underline"
+						className="text-xs font-semibold text-peach-600 hover:underline"
 					>
 						View all
 					</Link>
@@ -208,7 +208,7 @@ const PatientDashboard = () => {
 						{appointments.map((appointment) => (
 							<div
 								key={appointment._id}
-								className="flex items-center justify-between rounded-xl bg-ink-50 p-4"
+								className="flex items-center justify-between rounded-xl bg-ink-50 p-4 border border-ink-100"
 							>
 								<div>
 									<p className="font-semibold text-ink-800">
@@ -245,9 +245,9 @@ const PatientDashboard = () => {
 				<div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
 					<Link
 						to="/patient/medicines"
-						className="card-pad border-brand-100 bg-brand-50/30 transition hover:-translate-y-1 hover:shadow-popover"
+						className="card-pad border-peach-200/80 bg-peach-50/40 transition hover:-translate-y-1 hover:shadow-popover"
 					>
-						<div className="flex h-9 w-9 items-center justify-center rounded-xl bg-brand-100 text-brand-700">
+						<div className="flex h-9 w-9 items-center justify-center rounded-xl bg-peach-100 text-peach-700">
 							<Pill size={20} />
 						</div>
 						<h3 className="mt-3 font-bold text-ink-900">
@@ -289,7 +289,7 @@ const PatientDashboard = () => {
 						to="/patient/learning"
 						className="card-pad transition hover:-translate-y-1 hover:shadow-popover"
 					>
-						<div className="flex h-9 w-9 items-center justify-center rounded-xl bg-emerald-100 text-emerald-700">
+						<div className="flex h-9 w-9 items-center justify-center rounded-xl bg-brand-100 text-brand-800">
 							<Sparkles size={20} />
 						</div>
 						<h3 className="mt-3 font-bold text-ink-900">

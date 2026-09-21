@@ -93,9 +93,9 @@ const MedicineFinder = () => {
   return (
     <div className="space-y-6 pb-12">
       {/* Hero Header */}
-      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand-900 via-brand-800 to-ink-900 p-6 md:p-8 text-white shadow-xl">
-        <div className="absolute right-0 top-0 -mr-16 -mt-16 h-64 w-64 rounded-full bg-brand-500/20 blur-3xl pointer-events-none" />
-        <div className="absolute left-1/2 bottom-0 -mb-20 h-48 w-48 rounded-full bg-sky-500/20 blur-2xl pointer-events-none" />
+      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-ink-950 via-peach-950 to-ink-900 p-6 md:p-8 text-white shadow-xl">
+        <div className="absolute right-0 top-0 -mr-16 -mt-16 h-64 w-64 rounded-full bg-peach-500/20 blur-3xl pointer-events-none" />
+        <div className="absolute left-1/2 bottom-0 -mb-20 h-48 w-48 rounded-full bg-brand-500/20 blur-2xl pointer-events-none" />
 
         <div className="relative z-10 max-w-3xl">
           <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold backdrop-blur-md text-brand-200 mb-3 border border-white/10">
@@ -105,7 +105,7 @@ const MedicineFinder = () => {
           <h1 className="text-2xl md:text-4xl font-extrabold tracking-tight">
             Find Any Medicine & Verified Buy Links
           </h1>
-          <p className="mt-2 text-sm md:text-base text-brand-100/90 leading-relaxed">
+          <p className="mt-2 text-sm md:text-base text-peach-100/90 leading-relaxed">
             Search any medicine name. Our LangChain AI agent searches live pharmacy websites (Tata 1mg, Apollo, Netmeds, PharmEasy) with DuckDuckGo to find verified purchase links, active salt compositions, and cost-effective generic substitutes.
           </p>
 
@@ -115,7 +115,7 @@ const MedicineFinder = () => {
               <Search size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-ink-400" />
               <input
                 type="text"
-                className="w-full rounded-2xl border-0 bg-white/95 pl-11 pr-4 py-3.5 text-sm font-medium text-ink-900 placeholder:text-ink-400 shadow-inner outline-none transition focus:bg-white focus:ring-4 focus:ring-brand-400/40"
+                className="w-full rounded-2xl border-0 bg-white/95 pl-11 pr-4 py-3.5 text-sm font-medium text-ink-900 placeholder:text-ink-400 shadow-inner outline-none transition focus:bg-white focus:ring-4 focus:ring-peach-400/40"
                 placeholder="Enter medicine name (e.g. Dolo 650, Augmentin, Pantocid, Allegra)..."
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
@@ -125,7 +125,7 @@ const MedicineFinder = () => {
             <button
               type="submit"
               disabled={loading || !query.trim()}
-              className="btn-primary shrink-0 px-6 py-3.5 rounded-2xl font-bold bg-brand-500 hover:bg-brand-400 text-white shadow-lg shadow-brand-950/40 transition disabled:opacity-60 flex items-center justify-center gap-2"
+              className="btn-primary shrink-0 px-6 py-3.5 rounded-2xl font-bold bg-gradient-to-r from-peach-500 to-brand-500 hover:from-peach-600 hover:to-brand-600 text-white shadow-lg shadow-peach-950/40 transition disabled:opacity-60 flex items-center justify-center gap-2"
             >
               {loading ? (
                 <>
@@ -151,7 +151,7 @@ const MedicineFinder = () => {
                   className="inline-flex items-center gap-1.5 rounded-xl bg-white/10 px-2.5 py-1 text-xs font-medium text-white/90 backdrop-blur-sm transition hover:bg-white/20 hover:scale-105 active:scale-95 border border-white/10"
                 >
                   <span>{item.name}</span>
-                  <span className="text-[10px] text-brand-200">({item.category})</span>
+                  <span className="text-[10px] text-peach-200">({item.category})</span>
                 </button>
               ))}
             </div>
@@ -161,11 +161,11 @@ const MedicineFinder = () => {
 
       {/* Loading Progress State with Animated Steps */}
       {loading && (
-        <div className="card card-pad border-brand-200 bg-brand-50/50">
+        <div className="card card-pad border-peach-200 bg-peach-50/50">
           <div className="flex flex-col items-center justify-center text-center py-6 space-y-4">
-            <div className="relative flex h-16 w-16 items-center justify-center rounded-2xl bg-brand-100 text-brand-600 shadow-sm">
+            <div className="relative flex h-16 w-16 items-center justify-center rounded-2xl bg-peach-100 text-peach-700 shadow-sm">
               <Pill size={32} className="animate-pulse" />
-              <div className="absolute inset-0 rounded-2xl border-2 border-brand-400 border-t-transparent animate-spin" />
+              <div className="absolute inset-0 rounded-2xl border-2 border-peach-400 border-t-transparent animate-spin" />
             </div>
 
             <div className="space-y-1">
@@ -187,16 +187,16 @@ const MedicineFinder = () => {
                     key={step.id}
                     className={`flex items-center gap-3 rounded-xl p-2.5 transition-all text-xs font-medium ${
                       isCurrent
-                        ? "bg-white text-brand-700 shadow-sm border border-brand-200 font-semibold scale-[1.02]"
+                        ? "bg-white text-peach-800 shadow-sm border border-peach-200 font-semibold scale-[1.02]"
                         : isDone
-                        ? "text-emerald-700"
+                        ? "text-peach-700"
                         : "text-ink-400 opacity-60"
                     }`}
                   >
                     {isDone ? (
-                      <CheckCircle2 size={16} className="text-emerald-500 shrink-0" />
+                      <CheckCircle2 size={16} className="text-peach-600 shrink-0" />
                     ) : isCurrent ? (
-                      <RefreshCw size={16} className="text-brand-600 animate-spin shrink-0" />
+                      <RefreshCw size={16} className="text-peach-600 animate-spin shrink-0" />
                     ) : (
                       <div className="h-4 w-4 rounded-full border border-ink-300 shrink-0" />
                     )}
@@ -224,7 +224,7 @@ const MedicineFinder = () => {
       {medicineData && !loading && (
         <div className="space-y-6">
           {/* Main Drug Overview Card */}
-          <div className="card card-pad border-brand-100 shadow-lg">
+          <div className="card card-pad border-peach-100 shadow-lg">
             <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 border-b border-ink-100 pb-5">
               <div>
                 <div className="flex flex-wrap items-center gap-2 mb-1.5">
@@ -236,7 +236,7 @@ const MedicineFinder = () => {
                       <FileText size={12} /> Rx Required
                     </span>
                   ) : (
-                    <span className="badge badge-green font-bold">
+                    <span className="badge badge-peach font-bold">
                       <ShieldCheck size={12} /> Over-the-Counter (OTC)
                     </span>
                   )}
@@ -250,7 +250,7 @@ const MedicineFinder = () => {
                 <h2 className="text-2xl md:text-3xl font-extrabold text-ink-900 tracking-tight">
                   {medicineData.medicine_name}
                 </h2>
-                <p className="text-sm font-semibold text-brand-700 mt-1 flex items-center gap-1.5">
+                <p className="text-sm font-semibold text-peach-700 mt-1 flex items-center gap-1.5">
                   <Layers size={14} /> Active Salt: {medicineData.generic_name}
                 </p>
               </div>
@@ -258,7 +258,7 @@ const MedicineFinder = () => {
               <div className="flex items-center gap-2">
                 <a
                   href="#buy-section"
-                  className="btn-primary rounded-xl px-4 py-2 text-xs font-bold shadow-md shadow-brand-600/20"
+                  className="btn-primary rounded-xl px-4 py-2 text-xs font-bold shadow-md shadow-peach-500/20"
                 >
                   <ShoppingBag size={14} /> View Buy Links ({medicineData.buy_links?.length || 0})
                 </a>
@@ -275,12 +275,12 @@ const MedicineFinder = () => {
               {/* Uses */}
               <div className="rounded-2xl bg-ink-50/70 p-4 border border-ink-100">
                 <h4 className="text-xs font-bold uppercase tracking-wider text-ink-600 flex items-center gap-1.5 mb-2.5">
-                  <Activity size={14} className="text-brand-600" /> Primary Indications & Uses
+                  <Activity size={14} className="text-peach-600" /> Primary Indications & Uses
                 </h4>
                 <ul className="space-y-1.5">
                   {medicineData.uses?.map((u, i) => (
                     <li key={i} className="flex items-start gap-2 text-xs text-ink-800 font-medium">
-                      <CheckCircle2 size={13} className="text-emerald-600 shrink-0 mt-0.5" />
+                      <CheckCircle2 size={13} className="text-peach-600 shrink-0 mt-0.5" />
                       <span>{u}</span>
                     </li>
                   ))}
@@ -290,7 +290,7 @@ const MedicineFinder = () => {
               {/* Available Forms */}
               <div className="rounded-2xl bg-ink-50/70 p-4 border border-ink-100">
                 <h4 className="text-xs font-bold uppercase tracking-wider text-ink-600 flex items-center gap-1.5 mb-2.5">
-                  <Pill size={14} className="text-indigo-600" /> Available Strengths & Dosage Forms
+                  <Pill size={14} className="text-peach-600" /> Available Strengths & Dosage Forms
                 </h4>
                 <div className="flex flex-wrap gap-1.5">
                   {medicineData.dosage_forms?.map((form, i) => (
@@ -311,13 +311,13 @@ const MedicineFinder = () => {
             <div className="flex items-center justify-between">
               <div>
                 <h3 className="section-title flex items-center gap-2">
-                  <ShoppingBag size={20} className="text-brand-600" /> Where to Buy Online
+                  <ShoppingBag size={20} className="text-peach-600" /> Where to Buy Online
                 </h3>
                 <p className="text-xs text-ink-500 mt-0.5">
                   Real-time pharmacy product links discovered via DuckDuckGo web index
                 </p>
               </div>
-              <span className="badge badge-green font-semibold">
+              <span className="badge badge-peach font-semibold">
                 {medicineData.buy_links?.length || 0} Stores Found
               </span>
             </div>
@@ -326,7 +326,7 @@ const MedicineFinder = () => {
               {medicineData.buy_links?.map((link, idx) => (
                 <div
                   key={idx}
-                  className="card p-4 flex flex-col justify-between border-ink-200/80 hover:border-brand-400 hover:shadow-md transition-all duration-200 group"
+                  className="card p-4 flex flex-col justify-between border-peach-100/90 hover:border-peach-400 hover:shadow-md transition-all duration-200 group"
                 >
                   <div className="space-y-2">
                     <div className="flex items-center justify-between">
@@ -334,12 +334,12 @@ const MedicineFinder = () => {
                         <span className="text-lg">{link.icon || "💊"}</span>
                         <span className="font-bold text-sm text-ink-900">{link.source}</span>
                       </div>
-                      <span className="rounded-full bg-brand-50 px-2 py-0.5 text-[10px] font-bold text-brand-700 border border-brand-200">
+                      <span className="rounded-full bg-peach-50 px-2 py-0.5 text-[10px] font-bold text-peach-700 border border-peach-200">
                         {link.badge || "Verified"}
                       </span>
                     </div>
 
-                    <h4 className="text-xs font-semibold text-ink-800 line-clamp-2 leading-snug group-hover:text-brand-600 transition-colors">
+                    <h4 className="text-xs font-semibold text-ink-800 line-clamp-2 leading-snug group-hover:text-peach-600 transition-colors">
                       {link.title}
                     </h4>
 
@@ -351,14 +351,14 @@ const MedicineFinder = () => {
                   </div>
 
                   <div className="mt-4 pt-3 border-t border-ink-100 flex items-center justify-between">
-                    <span className="text-[11px] font-semibold text-emerald-700">
+                    <span className="text-[11px] font-semibold text-peach-700">
                       {link.price_estimate || "In Stock Online"}
                     </span>
                     <a
                       href={link.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="btn-sm bg-brand-600 hover:bg-brand-700 text-white font-bold rounded-lg inline-flex items-center gap-1 text-[11px] transition shadow-xs"
+                      className="btn-sm bg-gradient-to-r from-peach-500 to-brand-500 hover:from-peach-600 hover:to-brand-600 text-white font-bold rounded-lg inline-flex items-center gap-1 text-[11px] transition shadow-xs"
                     >
                       <span>Buy Online</span>
                       <ExternalLink size={12} />
@@ -375,13 +375,13 @@ const MedicineFinder = () => {
               <div className="flex items-center justify-between mb-4">
                 <div>
                   <h3 className="section-title flex items-center gap-2">
-                    <TrendingDown size={20} className="text-emerald-600" /> Substitutes & Generic Alternatives
+                    <TrendingDown size={20} className="text-peach-600" /> Substitutes & Generic Alternatives
                   </h3>
                   <p className="text-xs text-ink-500 mt-0.5">
                     Chemically equivalent formulations with identical salt strength for cost comparison
                   </p>
                 </div>
-                <span className="badge badge-green">
+                <span className="badge badge-peach">
                   Generic Equivalents
                 </span>
               </div>
@@ -390,7 +390,7 @@ const MedicineFinder = () => {
                 {medicineData.substitutes.map((sub, idx) => (
                   <div
                     key={idx}
-                    className="rounded-2xl border border-ink-100 bg-emerald-50/30 p-3.5 hover:bg-emerald-50/70 transition flex flex-col justify-between"
+                    className="rounded-2xl border border-peach-100 bg-peach-50/40 p-3.5 hover:bg-peach-50/80 transition flex flex-col justify-between"
                   >
                     <div>
                       <h4 className="text-sm font-bold text-ink-900">{sub.name}</h4>
@@ -399,14 +399,14 @@ const MedicineFinder = () => {
                         <p className="text-[11px] text-ink-400 mt-1">By: {sub.manufacturer}</p>
                       )}
                     </div>
-                    <div className="mt-3 pt-2 border-t border-emerald-100/80 flex items-center justify-between">
-                      <span className="text-[10px] font-bold text-emerald-700">
+                    <div className="mt-3 pt-2 border-t border-peach-100 flex items-center justify-between">
+                      <span className="text-[10px] font-bold text-peach-700">
                         {sub.price_comparison || "Generic alternative"}
                       </span>
                       <button
                         type="button"
                         onClick={() => handleSearch(sub.name)}
-                        className="text-[11px] font-bold text-brand-600 hover:text-brand-800 inline-flex items-center gap-0.5"
+                        className="text-[11px] font-bold text-peach-600 hover:text-peach-800 inline-flex items-center gap-0.5"
                       >
                         Search <ArrowRight size={11} />
                       </button>
@@ -470,7 +470,7 @@ const MedicineFinder = () => {
                       href={info.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="btn-ghost btn-sm text-brand-600 hover:text-brand-700 shrink-0 text-xs font-bold flex items-center gap-1"
+                      className="btn-ghost btn-sm text-peach-600 hover:text-peach-700 shrink-0 text-xs font-bold flex items-center gap-1"
                     >
                       <span>Read Guide</span>
                       <ExternalLink size={12} />
@@ -492,7 +492,7 @@ const MedicineFinder = () => {
       {/* Empty State when no query is searched */}
       {!medicineData && !loading && (
         <div className="card card-pad text-center py-12 space-y-4">
-          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-50 text-brand-600">
+          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-peach-50 text-peach-700 border border-peach-100">
             <ShoppingBag size={28} />
           </div>
           <div className="space-y-1">

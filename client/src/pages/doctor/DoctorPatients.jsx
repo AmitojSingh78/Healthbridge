@@ -50,9 +50,9 @@ const DoctorPatients = () => {
 			) : (
 				<div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
 					{filtered.map((entry) => (
-						<div key={entry.patient._id} className="card-pad">
+						<div key={entry.patient._id} className="card-pad border-peach-100/90">
 							<div className="flex items-center gap-3">
-								<div className="flex h-11 w-11 items-center justify-center rounded-full bg-brand-100 text-sm font-bold text-brand-700">
+								<div className="flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-peach-500 to-brand-500 text-sm font-bold text-white shadow-sm">
 									{entry.patient.name
 										?.slice(0, 1)
 										.toUpperCase()}

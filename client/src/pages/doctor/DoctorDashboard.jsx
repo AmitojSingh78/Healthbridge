@@ -16,7 +16,7 @@ import EmptyState from "../../components/EmptyState";
 const statusBadge = {
 	pending: "badge-amber",
 	confirmed: "badge-blue",
-	completed: "badge-green",
+	completed: "badge-peach",
 	rejected: "badge-red",
 	cancelled: "badge-slate",
 };
@@ -54,7 +54,7 @@ const DoctorDashboard = () => {
 					icon={CalendarClock}
 					label="Total appointments"
 					value={stats?.totalAppointments ?? 0}
-					tone="brand"
+					tone="peach"
 				/>
 				<StatCard
 					icon={Clock3}
@@ -66,7 +66,7 @@ const DoctorDashboard = () => {
 					icon={CheckCircle2}
 					label="Completed"
 					value={stats?.completed ?? 0}
-					tone="sky"
+					tone="brand"
 				/>
 				<StatCard
 					icon={Users}
@@ -77,12 +77,12 @@ const DoctorDashboard = () => {
 			</div>
 
 			<div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-2">
-				<div className="card-pad">
+				<div className="card-pad border-peach-100/90">
 					<div className="mb-4 flex items-center justify-between">
 						<h2 className="section-title">Today's schedule</h2>
 						<Link
 							to="/doctor/appointments"
-							className="text-xs font-semibold text-brand-600 hover:underline"
+							className="text-xs font-semibold text-peach-600 hover:underline"
 						>
 							View all
 						</Link>
@@ -123,12 +123,12 @@ const DoctorDashboard = () => {
 					)}
 				</div>
 
-				<div className="card-pad">
+				<div className="card-pad border-peach-100/90">
 					<div className="mb-4 flex items-center justify-between">
 						<h2 className="section-title">Upcoming appointments</h2>
 						<Link
 							to="/doctor/appointments"
-							className="text-xs font-semibold text-brand-600 hover:underline"
+							className="text-xs font-semibold text-peach-600 hover:underline"
 						>
 							Manage
 						</Link>

@@ -26,8 +26,8 @@ const CATEGORY_META = [
 ];
 
 const scoreColor = (score) => {
-	if (score >= 80) return "from-brand-400 to-brand-600";
-	if (score >= 60) return "from-sky-400 to-sky-600";
+	if (score >= 80) return "from-brand-400 via-brand-500 to-peach-500";
+	if (score >= 60) return "from-peach-400 to-peach-600";
 	if (score >= 40) return "from-amber-400 to-amber-500";
 	return "from-coral-400 to-coral-600";
 };
@@ -43,7 +43,7 @@ const ScoreRing = ({ score }) => {
 					cy="60"
 					r="54"
 					fill="none"
-					stroke="#eceef2"
+					stroke="#f7f0e6"
 					strokeWidth="10"
 				/>
 				<circle
@@ -51,7 +51,7 @@ const ScoreRing = ({ score }) => {
 					cy="60"
 					r="54"
 					fill="none"
-					stroke="#1d7a63"
+					stroke="#f2723c"
 					strokeWidth="10"
 					strokeLinecap="round"
 					strokeDasharray={circumference}
@@ -79,7 +79,7 @@ const Wellness = () => {
 			const data = await getLatestAssessment();
 			setAssessment(data.assessment);
 		} catch {
-			setAssessment(null);
+			// no assessment yet
 		} finally {
 			setLoading(false);
 		}
@@ -90,39 +90,36 @@ const Wellness = () => {
 	}, []);
 
 	const handleAssessment = async () => {
-		try {
-			setRunning(true);
-			setMessage("");
+		setRunning(true);
+		setMessage("");
 
+		try {
 			const data = await runAssessment();
 			setAssessment(data.assessment);
-
 			await generateLearningPath();
-
-			setMessage(
-				"Your personalized health learning path has been generated.",
-			);
-		} catch (err) {
-			setMessage(
-				err.response?.data?.message || "Unable to generate assessment.",
+			setMessage("Wellness assessment generated successfully!");
+		} catch (error) {
+			alert(
+				error.response?.data?.message ||
+					"Unable to generate assessment. Please ensure your health profile is filled.",
 			);
 		} finally {
 			setRunning(false);
 		}
 	};
 
-	if (loading) return <Loader label="Loading wellness dashboard..." />;
+	if (loading) return <Loader label="Loading wellness assessment..." />;
 
 	return (
 		<div>
-			<h1 className="page-title">My Wellness</h1>
+			<h1 className="page-title">Wellness Assessment</h1>
 			<p className="page-subtitle">
 				Understand your lifestyle and build healthier habits.
 			</p>
 
 			{!assessment && (
 				<div className="card-pad mt-6 flex flex-col items-center gap-4 py-12 text-center">
-					<div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-50 text-brand-600">
+					<div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-peach-50 text-peach-700 border border-peach-100">
 						<Sparkles size={26} />
 					</div>
 					<div>
@@ -145,7 +142,7 @@ const Wellness = () => {
 					</button>
 					<Link
 						to="/patient/health"
-						className="text-xs font-semibold text-brand-600 hover:underline"
+						className="text-xs font-semibold text-peach-600 hover:underline"
 					>
 						Haven't filled your health profile? Do that first.
 					</Link>
@@ -178,7 +175,7 @@ const Wellness = () => {
 
 					<div className="card-pad">
 						<div className="mb-4 flex items-center gap-2">
-							<Activity size={18} className="text-brand-600" />
+							<Activity size={18} className="text-peach-600" />
 							<h2 className="section-title">Health areas</h2>
 						</div>
 						<div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -248,7 +245,7 @@ const Wellness = () => {
 							<div className="mb-3 flex items-center gap-2">
 								<ListChecks
 									size={18}
-									className="text-brand-600"
+									className="text-peach-600"
 								/>
 								<h2 className="section-title">
 									Recommendations
@@ -261,7 +258,7 @@ const Wellness = () => {
 											key={index}
 											className="flex items-start gap-2 text-sm text-ink-600"
 										>
-											<span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-500" />
+											<span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-peach-500" />
 											{recommendation}
 										</li>
 									),
@@ -277,7 +274,7 @@ const Wellness = () => {
 			)}
 
 			{message && (
-				<div className="mt-4 rounded-xl bg-brand-50 px-4 py-3 text-sm font-medium text-brand-700">
+				<div className="mt-4 rounded-xl bg-peach-50 px-4 py-3 text-sm font-medium text-peach-700">
 					{message}
 				</div>
 			)}

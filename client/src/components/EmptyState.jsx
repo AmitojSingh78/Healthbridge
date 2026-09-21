@@ -11,7 +11,7 @@ const EmptyState = ({
 	return (
 		<div className="card-pad flex flex-col items-center justify-center gap-3 py-14 text-center animate-fadeIn">
 			{Icon && (
-				<div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-50 text-brand-600">
+				<div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-peach-50 text-peach-700 border border-peach-100">
 					<Icon size={26} />
 				</div>
 			)}

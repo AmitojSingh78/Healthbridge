@@ -5,11 +5,11 @@ import Loader from "../../components/Loader";
 import EmptyState from "../../components/EmptyState";
 
 const CATEGORY_ICON_COLORS = {
-  Nutrition: "bg-brand-50 text-brand-600",
-  "Physical Activity": "bg-sky-50 text-sky-600",
-  Sleep: "bg-amber-50 text-amber-600",
-  "Mental Well-being": "bg-coral-50 text-coral-600",
-  "Health Awareness": "bg-ink-100 text-ink-600",
+  Nutrition: "bg-peach-50 text-peach-700 border border-peach-200/60",
+  "Physical Activity": "bg-brand-50 text-brand-700 border border-brand-200/60",
+  Sleep: "bg-amber-50 text-amber-700 border border-amber-200/60",
+  "Mental Well-being": "bg-coral-50 text-coral-600 border border-coral-200/60",
+  "Health Awareness": "bg-peach-100 text-peach-800 border border-peach-200/60",
 };
 
 const Education = () => {
@@ -61,7 +61,7 @@ const Education = () => {
                   const key = `${category}-${idx}`;
                   const isOpen = openLesson === key;
                   return (
-                    <div key={key} className="card-pad">
+                    <div key={key} className="card-pad border-peach-100/90">
                       <button
                         className="flex w-full items-center justify-between gap-3 text-left"
                         onClick={() => setOpenLesson(isOpen ? null : key)}

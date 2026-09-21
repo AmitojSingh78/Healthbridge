@@ -17,7 +17,7 @@ const DashboardShell = ({ menuItems, roleLabel }) => {
 	const SidebarContent = (
 		<div className="flex h-full flex-col bg-ink-950 text-white">
 			<div className="flex items-center gap-3 px-5 pt-6 pb-5">
-				<div className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-500 shadow-lg shadow-brand-900/40">
+				<div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-peach-500 to-brand-500 text-white shadow-lg shadow-peach-950/40">
 					<HeartPulse size={20} />
 				</div>
 				<div>
@@ -52,7 +52,7 @@ const DashboardShell = ({ menuItems, roleLabel }) => {
 
 			<div className="border-t border-white/10 p-3">
 				<div className="flex items-center gap-3 rounded-xl px-2 py-2">
-					<div className="flex h-9 w-9 items-center justify-center rounded-full bg-brand-600 text-xs font-bold">
+					<div className="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-peach-500 to-brand-500 text-xs font-bold text-white shadow-sm">
 						{initials}
 					</div>
 					<div className="min-w-0 flex-1">
@@ -94,27 +94,27 @@ const DashboardShell = ({ menuItems, roleLabel }) => {
 			)}
 
 			<div className="flex min-h-screen flex-1 flex-col">
-				<header className="sticky top-0 z-30 flex items-center justify-between border-b border-ink-100 bg-white/80 px-4 py-3 backdrop-blur lg:px-8">
+				<header className="sticky top-0 z-30 flex items-center justify-between border-b border-peach-100 bg-white/85 px-4 py-3 backdrop-blur lg:px-8">
 					<button
-						className="rounded-lg p-2 text-ink-500 hover:bg-ink-100 lg:hidden"
+						className="rounded-lg p-2 text-ink-500 hover:bg-peach-50 lg:hidden"
 						onClick={() => setMobileOpen(true)}
 					>
 						<Menu size={20} />
 					</button>
 					<div className="hidden lg:block">
-						<p className="text-sm text-ink-400">
+						<p className="text-sm text-ink-500">
 							Welcome back,{" "}
-							<span className="font-semibold text-ink-700">
+							<span className="font-semibold text-ink-800">
 								{user?.name?.split(" ")[0]}
 							</span>
 						</p>
 					</div>
 					<div className="flex items-center gap-3">
-						<button className="relative rounded-lg p-2 text-ink-500 hover:bg-ink-100">
+						<button className="relative rounded-lg p-2 text-ink-500 hover:bg-peach-50">
 							<Bell size={19} />
-							<span className="absolute right-1.5 top-1.5 h-1.5 w-1.5 rounded-full bg-coral-500" />
+							<span className="absolute right-1.5 top-1.5 h-1.5 w-1.5 rounded-full bg-peach-500" />
 						</button>
-						<div className="flex h-9 w-9 items-center justify-center rounded-full bg-brand-100 text-xs font-bold text-brand-700 lg:hidden">
+						<div className="flex h-9 w-9 items-center justify-center rounded-full bg-peach-100 text-xs font-bold text-peach-700 lg:hidden">
 							{initials}
 						</div>
 					</div>

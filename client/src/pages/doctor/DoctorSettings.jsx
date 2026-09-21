@@ -55,9 +55,9 @@ const DoctorSettings = () => {
 			<h1 className="page-title">Settings</h1>
 			<p className="page-subtitle">Manage your professional profile.</p>
 
-			<form onSubmit={handleSubmit} className="card-pad mt-6 space-y-5">
+			<form onSubmit={handleSubmit} className="card-pad mt-6 space-y-5 border-peach-100/90">
 				<div className="flex items-center gap-4 border-b border-ink-100 pb-5">
-					<div className="flex h-16 w-16 items-center justify-center rounded-full bg-brand-100 text-xl font-bold text-brand-700">
+					<div className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-peach-500 to-brand-500 text-xl font-bold text-white shadow-md shadow-peach-500/20">
 						{(user?.name || "?").slice(0, 1).toUpperCase()}
 					</div>
 					<div>

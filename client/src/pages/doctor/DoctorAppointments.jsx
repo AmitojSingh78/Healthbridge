@@ -26,7 +26,7 @@ const TABS = [
 const statusBadge = {
 	pending: "badge-amber",
 	confirmed: "badge-blue",
-	completed: "badge-green",
+	completed: "badge-peach",
 	rejected: "badge-red",
 	cancelled: "badge-slate",
 };
@@ -89,7 +89,7 @@ const DoctorAppointments = () => {
 						className={`rounded-full px-3.5 py-1.5 text-xs font-semibold capitalize transition ${
 							tab === t
 								? "bg-ink-900 text-white"
-								: "bg-white text-ink-500 border border-ink-200 hover:bg-ink-50"
+								: "bg-white text-ink-600 border border-ink-200 hover:bg-peach-50/50 hover:border-peach-200"
 						}`}
 					>
 						{t}
@@ -108,7 +108,7 @@ const DoctorAppointments = () => {
 			) : (
 				<div className="mt-6 space-y-4">
 					{filtered.map((appt) => (
-						<div key={appt._id} className="card-pad">
+						<div key={appt._id} className="card-pad border-peach-100/90">
 							<div className="flex flex-wrap items-start justify-between gap-3">
 								<div>
 									<div className="flex items-center gap-2">

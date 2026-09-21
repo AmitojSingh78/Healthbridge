@@ -41,7 +41,7 @@ const Home = () => {
 		<div className="min-h-screen bg-ink-50">
 			<header className="mx-auto flex max-w-7xl items-center justify-between px-6 py-6">
 				<div className="flex items-center gap-2.5">
-					<div className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-600 text-white shadow-lg shadow-brand-900/20">
+					<div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-peach-500 to-brand-500 text-white shadow-lg shadow-peach-500/25">
 						<HeartPulse size={20} />
 					</div>
 					<span className="text-lg font-extrabold tracking-tight text-ink-900">
@@ -59,13 +59,13 @@ const Home = () => {
 			</header>
 
 			<section className="mx-auto max-w-5xl px-6 pb-16 pt-10 text-center md:pt-20">
-				<span className="badge-green mx-auto inline-flex">
-					<ShieldCheck size={13} /> AI-assisted, human-verified care
+				<span className="badge badge-peach border border-peach-200 mx-auto inline-flex gap-1.5 px-3.5 py-1.5 text-xs font-semibold">
+					<ShieldCheck size={14} className="text-peach-600" /> AI-assisted, human-verified care
 				</span>
 				<h1 className="mt-5 text-4xl font-extrabold leading-tight tracking-tight text-ink-900 md:text-6xl">
 					Preventive healthcare,
 					<br />
-					<span className="bg-gradient-to-r from-brand-500 to-brand-700 bg-clip-text text-transparent">
+					<span className="bg-gradient-to-r from-peach-500 via-brand-500 to-peach-600 bg-clip-text text-transparent">
 						personalized for you
 					</span>
 				</h1>
@@ -78,7 +78,7 @@ const Home = () => {
 				<div className="mt-8 flex flex-wrap items-center justify-center gap-3">
 					<Link
 						to="/register"
-						className="btn-primary px-6 py-3 text-base"
+						className="btn-primary px-6 py-3 text-base shadow-lg shadow-peach-500/20"
 					>
 						Create your free account <ArrowRight size={17} />
 					</Link>
@@ -98,9 +98,9 @@ const Home = () => {
 						return (
 							<div
 								key={feature.title}
-								className="card-pad text-left transition hover:-translate-y-1 hover:shadow-popover"
+								className="card-pad text-left transition hover:-translate-y-1 hover:shadow-popover border-peach-100/90"
 							>
-								<div className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-50 text-brand-600">
+								<div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-peach-50 to-brand-50 text-peach-700 border border-peach-100">
 									<Icon size={20} />
 								</div>
 								<h3 className="mt-4 font-bold text-ink-900">
@@ -115,7 +115,7 @@ const Home = () => {
 				</div>
 			</section>
 
-			<section className="border-t border-ink-100 bg-white py-8">
+			<section className="border-t border-peach-100 bg-white/70 py-8">
 				<p className="text-center text-xs text-ink-400">
 					HealthBridge is an educational tool and does not replace
 					professional medical advice, diagnosis, or treatment. Always

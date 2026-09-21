@@ -106,7 +106,7 @@ const Health = () => {
 			</p>
 
 			{message && (
-				<div className="mt-4 flex items-center gap-2 rounded-xl bg-brand-50 px-4 py-3 text-sm font-medium text-brand-700">
+				<div className="mt-4 flex items-center gap-2 rounded-xl bg-peach-50 px-4 py-3 text-sm font-medium text-peach-700">
 					<CheckCircle2 size={16} /> {message}
 				</div>
 			)}
@@ -117,9 +117,9 @@ const Health = () => {
 			)}
 
 			<form onSubmit={handleSubmit} className="mt-6 space-y-6">
-				<section className="card-pad">
+				<section className="card-pad border-peach-100/90">
 					<div className="mb-4 flex items-center gap-2">
-						<HeartPulse size={18} className="text-brand-600" />
+						<HeartPulse size={18} className="text-peach-600" />
 						<h2 className="section-title">
 							Basic health information
 						</h2>
@@ -166,9 +166,9 @@ const Health = () => {
 					</div>
 				</section>
 
-				<section className="card-pad">
+				<section className="card-pad border-peach-100/90">
 					<div className="mb-4 flex items-center gap-2">
-						<Salad size={18} className="text-brand-600" />
+						<Salad size={18} className="text-peach-600" />
 						<h2 className="section-title">Lifestyle</h2>
 					</div>
 					<div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -255,9 +255,9 @@ const Health = () => {
 					</div>
 				</section>
 
-				<section className="card-pad">
+				<section className="card-pad border-peach-100/90">
 					<div className="mb-4 flex items-center gap-2">
-						<Brain size={18} className="text-brand-600" />
+						<Brain size={18} className="text-peach-600" />
 						<h2 className="section-title">Well-being</h2>
 					</div>
 					<div className="grid grid-cols-1 gap-4 sm:grid-cols-2">

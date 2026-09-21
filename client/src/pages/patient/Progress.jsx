@@ -66,7 +66,7 @@ const Progress = () => {
 					value={
 						latestScore !== undefined ? `${latestScore}/100` : "—"
 					}
-					tone="brand"
+					tone="peach"
 				/>
 				<StatCard
 					icon={Trophy}
@@ -78,7 +78,7 @@ const Progress = () => {
 					icon={BookOpen}
 					label="Lessons completed"
 					value={learningPath?.completedLessons ?? 0}
-					tone="sky"
+					tone="brand"
 				/>
 				<StatCard
 					icon={Flame}
@@ -90,7 +90,7 @@ const Progress = () => {
 
 			<div className="card-pad mt-6">
 				<div className="mb-4 flex items-center gap-2">
-					<TrendingUp size={18} className="text-brand-600" />
+					<TrendingUp size={18} className="text-peach-600" />
 					<h2 className="section-title">Wellness score over time</h2>
 				</div>
 
@@ -100,23 +100,23 @@ const Progress = () => {
 							<LineChart data={chartData}>
 								<CartesianGrid
 									strokeDasharray="3 3"
-									stroke="#eceef2"
+									stroke="#f7f0e6"
 								/>
 								<XAxis
 									dataKey="date"
-									tick={{ fontSize: 12, fill: "#7f89a3" }}
+									tick={{ fontSize: 12, fill: "#a8937d" }}
 								/>
 								<YAxis
 									domain={[0, 100]}
-									tick={{ fontSize: 12, fill: "#7f89a3" }}
+									tick={{ fontSize: 12, fill: "#a8937d" }}
 								/>
 								<Tooltip />
 								<Line
 									type="monotone"
 									dataKey="score"
-									stroke="#1d7a63"
+									stroke="#f2723c"
 									strokeWidth={3}
-									dot={{ r: 4, fill: "#1d7a63" }}
+									dot={{ r: 5, fill: "#f2723c" }}
 								/>
 							</LineChart>
 						</ResponsiveContainer>

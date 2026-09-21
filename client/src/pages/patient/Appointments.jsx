@@ -105,15 +105,15 @@ const Appointments = () => {
 					{doctors.map((doctor) => (
 						<div
 							key={doctor._id}
-							className="card-pad flex flex-col"
+							className="card-pad flex flex-col border-peach-100/90"
 						>
-							<div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-50 text-brand-600">
+							<div className="flex h-12 w-12 items-center justify-center rounded-xl bg-peach-50 text-peach-700 border border-peach-100">
 								<Stethoscope size={22} />
 							</div>
 							<h2 className="mt-3 font-bold text-ink-900">
 								Dr. {doctor.name}
 							</h2>
-							<p className="text-sm font-medium text-brand-600">
+							<p className="text-sm font-semibold text-peach-700">
 								{doctor.specialization || "General Physician"}
 							</p>
 

@@ -63,29 +63,29 @@ const DoctorProfile = () => {
         <ArrowLeft size={15} /> Back to doctors
       </Link>
 
-      <div className="card-pad flex flex-wrap items-start gap-5">
-        <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-brand-50 text-brand-600">
+      <div className="card-pad flex flex-wrap items-start gap-5 border-peach-100/90">
+        <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-peach-50 text-peach-700 border border-peach-100">
           <Stethoscope size={28} />
         </div>
         <div>
           <h1 className="text-xl font-extrabold text-ink-900">Dr. {doctor.name}</h1>
-          <p className="font-medium text-brand-600">{doctor.specialization || "General Physician"}</p>
+          <p className="font-semibold text-peach-700">{doctor.specialization || "General Physician"}</p>
           <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-sm text-ink-500">
             <span className="flex items-center gap-1.5">
-              <Award size={14} /> {doctor.experience || 0}+ years experience
+              <Award size={14} className="text-ink-400" /> {doctor.experience || 0}+ years experience
             </span>
             <span className="flex items-center gap-1.5">
-              <MapPin size={14} /> {doctor.hospital || "Hospital not specified"}
+              <MapPin size={14} className="text-ink-400" /> {doctor.hospital || "Hospital not specified"}
             </span>
           </div>
         </div>
       </div>
 
-      <div className="card-pad mt-6">
+      <div className="card-pad mt-6 border-peach-100/90">
         <h2 className="section-title">Book an appointment</h2>
 
         {message && (
-          <div className="mt-4 flex items-center gap-2 rounded-xl bg-brand-50 px-4 py-3 text-sm font-medium text-brand-700">
+          <div className="mt-4 flex items-center gap-2 rounded-xl bg-peach-50 px-4 py-3 text-sm font-medium text-peach-700">
             <CheckCircle2 size={16} /> {message}
           </div>
         )}

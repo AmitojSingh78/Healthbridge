@@ -44,7 +44,7 @@ const Login = () => {
 					to="/"
 					className="mb-6 flex items-center justify-center gap-2.5"
 				>
-					<div className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-600 text-white">
+					<div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-peach-500 to-brand-500 text-white shadow-md shadow-peach-500/25">
 						<HeartPulse size={20} />
 					</div>
 					<span className="text-lg font-extrabold tracking-tight text-ink-900">
@@ -120,7 +120,7 @@ const Login = () => {
 					Don't have an account?{" "}
 					<Link
 						to="/register"
-						className="font-semibold text-brand-600 hover:underline"
+						className="font-semibold text-peach-600 hover:underline"
 					>
 						Create one
 					</Link>

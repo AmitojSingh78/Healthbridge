@@ -20,5 +20,5 @@ const bedSchema = new mongoose.Schema({
         ref: 'User',
         default: null,
     },
-},{timestamps: true});
+}, { timestamps: true });
 module.exports = mongoose.model('Bed', bedSchema);

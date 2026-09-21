@@ -7,10 +7,11 @@ from pydantic import BaseModel
 from langgraph.types import Command
 
 from graph import workflow
+from medicine_finder import run_medicine_finder_agent
 
 app = FastAPI(
-    title="HealthBridge Admission Agent Service",
-    description="LangGraph AI agent orchestrating clinical hospital admission workflows.",
+    title="HealthBridge Admission Agent & Medicine Finder Service",
+    description="LangGraph AI agent orchestrating clinical hospital admissions and LangChain medicine finder agent.",
     version="1.0.0",
 )
 
@@ -35,12 +36,59 @@ class AdmissionApprovalRequest(BaseModel):
     notes: Optional[str] = ""
 
 
+class MedicineSearchRequest(BaseModel):
+    query: str
+    country: Optional[str] = "India"
+
+
 @app.get("/")
 def health_check():
     return {
         "status": "healthy",
-        "service": "HealthBridge Admission Agent Service",
+        "service": "HealthBridge Agent Service (Admissions & Medicine Finder)",
         "version": "1.0.0",
+    }
+
+
+@app.post("/medicine/search")
+def search_medicine(payload: MedicineSearchRequest):
+    """
+    Executes LangChain AI Agent with DuckDuckGo Search to find medicine details,
+    clinical indications, active composition, substitutes, and direct verified pharmacy buy links.
+    """
+    if not payload.query or not payload.query.strip():
+        raise HTTPException(status_code=400, detail="Medicine search query cannot be empty")
+
+    try:
+        result = run_medicine_finder_agent(payload.query, country=payload.country or "India")
+        return {
+            "success": True,
+            "data": result.model_dump()
+        }
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Error running medicine search agent: {str(e)}"
+        )
+
+
+@app.get("/medicine/suggestions")
+def get_medicine_suggestions():
+    """
+    Returns popular and trending medicine search queries.
+    """
+    return {
+        "success": True,
+        "suggestions": [
+            {"name": "Dolo 650", "category": "Fever & Pain Relief", "generic": "Paracetamol 650mg"},
+            {"name": "Augmentin 625 Duo", "category": "Antibiotic", "generic": "Amoxicillin + Clavulanic Acid"},
+            {"name": "Pantocid 40", "category": "Acidity & GERD", "generic": "Pantoprazole 40mg"},
+            {"name": "Allegra 120", "category": "Allergy Relief", "generic": "Fexofenadine 120mg"},
+            {"name": "Metformin 500 SR", "category": "Diabetes Care", "generic": "Metformin Hydrochloride"},
+            {"name": "Telmisartan 40", "category": "Blood Pressure", "generic": "Telmisartan 40mg"},
+            {"name": "Combiflam", "category": "Pain & Inflammation", "generic": "Ibuprofen + Paracetamol"},
+            {"name": "Azithral 500", "category": "Antibiotic", "generic": "Azithromycin 500mg"},
+        ]
     }
 
 

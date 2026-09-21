@@ -21,6 +21,7 @@ import LearningPath from "./pages/patient/LearningPath";
 import Education from "./pages/patient/Education";
 import Progress from "./pages/patient/Progress";
 import Settings from "./pages/patient/Settings";
+import MedicineFinder from "./pages/patient/MedicineFinder";
 
 import DoctorDashboard from "./pages/doctor/DoctorDashboard";
 import DoctorAppointments from "./pages/doctor/DoctorAppointments";
@@ -44,6 +45,8 @@ function App() {
         >
           <Route path="/patient/dashboard" element={<PatientDashboard />} />
           <Route path="/patient/health" element={<Health />} />
+          <Route path="/patient/medicines" element={<MedicineFinder />} />
+          <Route path="/patient/medicine-finder" element={<MedicineFinder />} />
           <Route path="/patient/ai-assistant" element={<AIAssistant />} />
           <Route path="/patient/appointments" element={<Appointments />} />
           <Route path="/patient/my-appointments" element={<MyAppointments />} />

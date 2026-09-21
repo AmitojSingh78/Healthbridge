@@ -8,6 +8,7 @@ import {
 	Bot,
 	ClipboardList,
 	Sparkles,
+	Pill,
 } from "lucide-react";
 import { getPatientDashboard } from "../../services/dashboardService";
 import StatCard from "../../components/StatCard";
@@ -241,42 +242,61 @@ const PatientDashboard = () => {
 
 			<div>
 				<h2 className="section-title mb-4">Quick actions</h2>
-				<div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+				<div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+					<Link
+						to="/patient/medicines"
+						className="card-pad border-brand-100 bg-brand-50/30 transition hover:-translate-y-1 hover:shadow-popover"
+					>
+						<div className="flex h-9 w-9 items-center justify-center rounded-xl bg-brand-100 text-brand-700">
+							<Pill size={20} />
+						</div>
+						<h3 className="mt-3 font-bold text-ink-900">
+							AI Medicine Finder
+						</h3>
+						<p className="mt-1.5 text-xs text-ink-500">
+							Search drugs, find online buy links & discover generic substitutes.
+						</p>
+					</Link>
 					<Link
 						to="/patient/ai-assistant"
 						className="card-pad transition hover:-translate-y-1 hover:shadow-popover"
 					>
-						<Bot size={20} className="text-brand-600" />
+						<div className="flex h-9 w-9 items-center justify-center rounded-xl bg-sky-100 text-sky-700">
+							<Bot size={20} />
+						</div>
 						<h3 className="mt-3 font-bold text-ink-900">
 							AI Health Assistant
 						</h3>
-						<p className="mt-1.5 text-sm text-ink-500">
-							Discuss your health concerns and prepare information
-							for a healthcare professional.
+						<p className="mt-1.5 text-xs text-ink-500">
+							Discuss your health concerns and prepare for doctor visits.
 						</p>
 					</Link>
 					<Link
 						to="/patient/wellness"
 						className="card-pad transition hover:-translate-y-1 hover:shadow-popover"
 					>
-						<ClipboardList size={20} className="text-brand-600" />
+						<div className="flex h-9 w-9 items-center justify-center rounded-xl bg-amber-100 text-amber-700">
+							<ClipboardList size={20} />
+						</div>
 						<h3 className="mt-3 font-bold text-ink-900">
 							Wellness Assessment
 						</h3>
-						<p className="mt-1.5 text-sm text-ink-500">
-							Check your current wellness profile.
+						<p className="mt-1.5 text-xs text-ink-500">
+							Check your current wellness profile & lifestyle metrics.
 						</p>
 					</Link>
 					<Link
 						to="/patient/learning"
 						className="card-pad transition hover:-translate-y-1 hover:shadow-popover"
 					>
-						<Sparkles size={20} className="text-brand-600" />
+						<div className="flex h-9 w-9 items-center justify-center rounded-xl bg-emerald-100 text-emerald-700">
+							<Sparkles size={20} />
+						</div>
 						<h3 className="mt-3 font-bold text-ink-900">
 							Learning Path
 						</h3>
-						<p className="mt-1.5 text-sm text-ink-500">
-							Continue your personalized health education.
+						<p className="mt-1.5 text-xs text-ink-500">
+							Continue your personalized health education journey.
 						</p>
 					</Link>
 				</div>

@@ -2,6 +2,7 @@ import {
 	LayoutDashboard,
 	HeartPulse,
 	Pill,
+	Salad,
 	Bot,
 	CalendarDays,
 	BookOpen,
@@ -20,6 +21,7 @@ const menuItems = [
 	},
 	{ name: "My Health", path: "/patient/health", icon: HeartPulse },
 	{ name: "Medicine Finder", path: "/patient/medicines", icon: Pill },
+	{ name: "Diet Planner", path: "/patient/diet-planner", icon: Salad },
 	{ name: "AI Assistant", path: "/patient/ai-assistant", icon: Bot },
 	{ name: "Appointments", path: "/patient/appointments", icon: CalendarDays },
 	{

@@ -1221,6 +1221,8 @@ All demo accounts share the password: **`Password123!`**
 | `JWT_SECRET` | **Yes** | — | Cryptographic secret for signing and verifying JWTs |
 | `AGENT_SERVICE_URL` | No | `http://localhost:8000` | URL of the Python agent microservice |
 | `ANTHROPIC_API_KEY` | No | *Empty* | Anthropic Claude API key. Uses offline triage engine when omitted |
+| `GROQ_API_KEY` | **Yes for Diet Planner** | — | Groq API key used by the Express backend to generate meal plans |
+| `GROQ_DIET_MODEL` | No | `openai/gpt-oss-120b` | Optional Groq model override for Diet Planner generation |
 
 ### AI Agent Microservice (`agent-service/.env`)
 | Variable | Required | Default | Description |

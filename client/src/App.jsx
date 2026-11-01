@@ -22,6 +22,7 @@ import Education from "./pages/patient/Education";
 import Progress from "./pages/patient/Progress";
 import Settings from "./pages/patient/Settings";
 import MedicineFinder from "./pages/patient/MedicineFinder";
+import DietPlanner from "./pages/patient/DietPlanner";
 
 import DoctorDashboard from "./pages/doctor/DoctorDashboard";
 import DoctorAppointments from "./pages/doctor/DoctorAppointments";
@@ -46,6 +47,7 @@ function App() {
           <Route path="/patient/dashboard" element={<PatientDashboard />} />
           <Route path="/patient/health" element={<Health />} />
           <Route path="/patient/medicines" element={<MedicineFinder />} />
+          <Route path="/patient/diet-planner" element={<DietPlanner />} />
           <Route path="/patient/medicine-finder" element={<MedicineFinder />} />
           <Route path="/patient/ai-assistant" element={<AIAssistant />} />
           <Route path="/patient/appointments" element={<Appointments />} />

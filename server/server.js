@@ -19,6 +19,7 @@ const dashboardRoutes = require("./routes/dashboardRoutes");
 const timelineRoutes = require("./routes/timelineRoutes");
 const automationRoutes = require("./routes/automationRoutes");
 const medicineRoutes = require("./routes/medicineRoutes");
+const dietPlannerRoutes = require("./routes/dietPlannerRoutes");
 
 // Connect to Database
 connectDB();
@@ -45,6 +46,7 @@ app.use("/api/dashboard", dashboardRoutes);
 app.use("/api/timeline", timelineRoutes);
 app.use("/api/automation", automationRoutes);
 app.use("/api/medicine", medicineRoutes);
+app.use("/api/diet-planner", dietPlannerRoutes);
 
 app.get("/", (req, res) => {
   res.json({
